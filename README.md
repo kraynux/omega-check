@@ -1,3 +1,4 @@
+<!-- Copyright (c) 2026 kraynux - kraynux@proton.me - Licence MIT (voir fichier LICENSE) -->
 <div align="center">
   <img src="docs/assets/omega-check.png" alt="Omega-Check" width="256">
 </div>
@@ -6,7 +7,7 @@
 
 **Scanneur de ports, services et rôles réseau (cible unique)**
 
-Élaboré par kraynux pour Omega-server
+> Élaboré par **kraynux** pour **Omega-server** 
 [https://kraynux.snake-mackarel.ts.net](https://kraynux.snake-mackarel.ts.net)
 
 Page officiel : [OMEGA-SCAN](https://kraynux.snake-mackarel.ts.net/omega-check/) &nbsp; Apercu : [Screenshots](https://kraynux.snake-mackarel.ts.net/omega-check/screenshots/)  
@@ -16,9 +17,12 @@ Page officiel : [OMEGA-SCAN](https://kraynux.snake-mackarel.ts.net/omega-check/)
 [![Platform](https://img.shields.io/badge/Platform-Linux-informational.svg)](https://www.linux.org/)
 [![Interface](https://img.shields.io/badge/Interface-TUI%20%2B%20Rich-cyan.svg)](https://github.com/Textualize/rich)
 
+**Langues:**  
+[Francais](README.md) · [English](README.en.md) · [Español](README.es.md) · [Русский](README.ru.md) · [中文](README.zh-CN.md)
+
 ---
 
-Omega-check est un outil TUI + CLI qui scanne les ports d'une cible réseau unique, identifie le service qui tourne sur chaque port ouvert (protocole, logiciel, version, authentification, WAF, TLS) et infère son rôle probable, sans jamais effectuer d'attaque active. Quatrième outil de la suite `omega-` (après `omega-fire`, `omega-stress` et `omega-scan`), structuré en Clean Architecture — voir `docs/ARCHITECTURE.md` pour le détail technique complet.
+**Omega-check** est un outil TUI + CLI qui scanne les ports d'une cible réseau unique, identifie le service qui tourne sur chaque port ouvert (protocole, logiciel, version, authentification, WAF, TLS) et infère son rôle probable, sans jamais effectuer d'attaque active. Quatrième outil de la suite `omega-` (après `omega-fire`, `omega-stress` et `omega-scan`), structuré en Clean Architecture — voir `docs/ARCHITECTURE.md` pour le détail technique complet.
 
 ## 1. Vision et périmètre
 
