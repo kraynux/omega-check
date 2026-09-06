@@ -1,6 +1,6 @@
 <!-- Copyright (c) 2026 kraynux - kraynux@proton.me - Licence MIT (voir fichier LICENSE) -->
 <div align="center">
-  <img src="docs/assets/omega-check.png" alt="Omega-Check" width="256">
+  <img src="docs/assets/omega-check.png" alt="Omega-Check" width="384">
 </div>
 
 #  OMEGA-CHECK
