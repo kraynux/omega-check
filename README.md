@@ -10,7 +10,7 @@
 > Élaboré par **kraynux** pour **Omega-server** 
 [https://kraynux.snake-mackarel.ts.net](https://kraynux.snake-mackarel.ts.net)
 
-Page officiel : [OMEGA-SCAN](https://kraynux.snake-mackarel.ts.net/omega-check/) &nbsp; Apercu : [Screenshots](https://kraynux.snake-mackarel.ts.net/omega-check/screenshots/)  
+Page officiel : [OMEGA-CHECK](https://kraynux.snake-mackarel.ts.net/omega-check/) &nbsp; Apercu : [Screenshots](https://kraynux.snake-mackarel.ts.net/omega-check/screenshots/)  
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/Python-3.10%2B-blue.svg)](https://www.python.org/)
