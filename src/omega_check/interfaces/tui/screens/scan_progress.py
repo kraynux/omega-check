@@ -24,6 +24,7 @@ from omega_check.application.queries.list_profiles import get_profile
 from omega_check.core.enums import ScanMode
 from omega_check.interfaces.tui.screens.show_detail import ShowDetailScreen
 from omega_check.interfaces.tui.widgets.progress_panel import ProgressPanel
+from omega_check.shared.i18n import _, log_message
 
 if TYPE_CHECKING:
     from omega_check.app.dependency_container import DependencyContainer
@@ -38,7 +39,8 @@ class _RelayHandler(logging.Handler):
         self._callback = callback
 
     def emit(self, record: logging.LogRecord) -> None:
-        self._callback(record.getMessage())
+        # Plan i18n R2 : le fichier journal reste en francais, l'ecran retraduit la ligne.
+        self._callback(log_message(record.msg, record.args))
 
 
 class ScanProgressScreen(Screen[None]):
@@ -62,7 +64,7 @@ class ScanProgressScreen(Screen[None]):
         self._ports = ports
 
     def compose(self) -> ComposeResult:
-        yield ProgressPanel(message=f"Scan de {self._target} en cours...")
+        yield ProgressPanel(message=_("Scan de {target} en cours...").format(target=self._target))
 
     def on_mount(self) -> None:
         self.run_worker(self._run_scan(), exclusive=True)
@@ -106,7 +108,7 @@ class ScanProgressScreen(Screen[None]):
 
         if host is None:
             self.app.notify(
-                f"Resolution DNS impossible pour '{self._target}'.", title="Scan echoue", severity="error"
+                _("Résolution DNS impossible pour '{target}'.").format(target=self._target), title=_("Scan échoué"), severity="error"
             )
             self.dismiss()
             return

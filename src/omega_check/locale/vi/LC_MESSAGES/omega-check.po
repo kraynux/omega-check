@@ -1,0 +1,162 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: omega-check\n"
+"Language: vi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Omega-Status: testing\n"
+
+#: src/omega_check/application/commands/clear_directory.py:52
+msgid "contient l'installation de omega-check"
+msgstr "chứa bản cài đặt của omega-check"
+
+#: src/omega_check/application/commands/run_scan.py:112
+#, python-format
+msgid "Scan terminé : %d port(s) analysé(s)."
+msgstr "Quét xong: đã phân tích %d cổng."
+
+#: src/omega_check/infrastructure/storage/sqlite/scan_repository.py:139
+msgid "échec de sauvegarde du host pour le scan {scan_id!r}"
+msgstr "không lưu được host cho bản quét {scan_id!r}"
+
+#: src/omega_check/infrastructure/storage/sqlite/target_repository.py:26
+msgid "échec d'épinglage de la cible {host!r}"
+msgstr "không ghim được mục tiêu {host!r}"
+
+#: src/omega_check/interfaces/tui/app.py:39
+msgid "🔍 OMEGA-CHECK"
+msgstr "🔍 OMEGA-CHECK"
+
+#: src/omega_check/interfaces/tui/screens/compare.py:32
+msgid "COMPARAISON DE SCANS"
+msgstr "SO SÁNH BẢN QUÉT"
+
+#: src/omega_check/interfaces/tui/screens/help_screen.py:29
+msgid "Saisir une cible (IP ou hostname) et un profil de ports, puis lancer le scan. Chaque port OPEN est ensuite identifié (protocole, logiciel, rôle) automatiquement."
+msgstr "Nhập một mục tiêu (IP hoặc hostname) và một hồ sơ cổng, rồi bắt đầu quét. Mỗi cổng OPEN sau đó được tự động nhận diện (giao thức, phần mềm, vai trò)."
+
+#: src/omega_check/interfaces/tui/screens/help_screen.py:37
+msgid "Liste tous les scans passés : détail complet, comparaison entre deux scans (marquer une référence puis comparer), ou rejouer un scan sur la même cible."
+msgstr "Liệt kê mọi bản quét trước đây: chi tiết đầy đủ, so sánh hai bản quét (đánh dấu tham chiếu rồi so sánh), hoặc chạy lại một bản quét trên cùng mục tiêu."
+
+#: src/omega_check/interfaces/tui/screens/help_screen.py:44
+msgid "Depuis le détail d'un scan : JSON (structure complète), texte (rapport compact) ou HTML (rapport visuel, thème d'export indépendant du thème de l'interface)."
+msgstr "Từ chi tiết một bản quét: JSON (cấu trúc đầy đủ), văn bản (báo cáo ngắn gọn) hoặc HTML (báo cáo trực quan, giao diện xuất độc lập với giao diện ứng dụng)."
+
+#: src/omega_check/interfaces/tui/screens/help_screen.py:51
+msgid "Omega-check identifie les services d'une cible unique (scan fixe, pas de dérive vers d'autres IPs) : ports TCP, protocole, logiciel, authentification, WAF, TLS, rôle inféré. Jamais de test actif ni d'authentification tentée."
+msgstr "Omega-check nhận diện dịch vụ của một mục tiêu duy nhất (quét cố định, không lan sang IP khác): cổng TCP, giao thức, phần mềm, xác thực, WAF, TLS, vai trò suy luận. Không bao giờ kiểm thử chủ động hay thử xác thực."
+
+#: src/omega_check/interfaces/tui/screens/history.py:109
+msgid "Impossible de rejouer ce scan (profil inconnu)."
+msgstr "Không thể chạy lại bản quét này (hồ sơ không xác định)."
+
+#: src/omega_check/interfaces/tui/screens/quit_confirm.py:21
+msgid "QUITTER OMEGA-CHECK ?"
+msgstr "THOÁT OMEGA-CHECK?"
+
+#: src/omega_check/interfaces/tui/screens/scan_setup.py:40
+msgid "Profil ou Saisie libre ci-dessous"
+msgstr "Hồ sơ hoặc nhập tự do bên dưới"
+
+#: src/omega_check/interfaces/tui/screens/scan_setup.py:62
+#, python-brace-format
+msgid "* {host}"
+msgstr "* {host}"
+
+#: src/omega_check/interfaces/tui/screens/scan_setup.py:70
+msgid "Personnalisé (CUSTOM)"
+msgstr "Tùy chỉnh (CUSTOM)"
+
+#: src/omega_check/interfaces/tui/screens/scan_setup.py:87
+msgid "ex. 80  /  22,443,8080  /  1000-2000"
+msgstr "vd. 80  /  22,443,8080  /  1000-2000"
+
+#: src/omega_check/interfaces/tui/screens/scan_setup.py:119
+msgid "Profil personnalisé : choisissez un de vos profils ou saisissez des ports."
+msgstr "Hồ sơ tùy chỉnh: chọn một hồ sơ của bạn hoặc nhập cổng."
+
+#: src/omega_check/interfaces/tui/screens/scan_setup.py:149
+msgid "Ce profil est exhaustif (union de tous les profils système) : le scan peut être long. Continuer ?"
+msgstr "Hồ sơ này là toàn diện (hợp của mọi hồ sơ hệ thống): quét có thể lâu. Tiếp tục?"
+
+#: src/omega_check/interfaces/tui/screens/scan_setup.py:189
+msgid "Choisissez un profil personnalisé ou saisissez des ports."
+msgstr "Hãy chọn một hồ sơ tùy chỉnh hoặc nhập cổng."
+
+#: src/omega_check/interfaces/tui/screens/settings_screen.py:82
+msgid "Supprimer les cibles"
+msgstr "Xóa mục tiêu"
+
+#: src/omega_check/interfaces/tui/screens/settings_screen.py:138
+msgid "SUPPRIMER LES CIBLES ?"
+msgstr "XÓA MỤC TIÊU?"
+
+#: src/omega_check/interfaces/tui/screens/settings_screen.py:139
+msgid "Toutes les cibles épinglées seront définitivement supprimées."
+msgstr "Tất cả mục tiêu đã ghim sẽ bị xóa vĩnh viễn."
+
+#: src/omega_check/interfaces/tui/screens/settings_screen.py:199
+msgid "Cibles supprimées."
+msgstr "Đã xóa mục tiêu."
+
+#: src/omega_check/interfaces/tui/screens/show_detail.py:38
+#, python-brace-format
+msgid "Cible : {target} ({target_ip}) — profil {value} — statut {value2}"
+msgstr "Mục tiêu: {target} ({target_ip}) — hồ sơ {value} — trạng thái {value2}"
+
+#: src/omega_check/interfaces/tui/screens/targets.py:44
+msgid "Désépingler"
+msgstr "Bỏ ghim"
+
+#: src/omega_check/infrastructure/exporters/text_exporter.py:17
+msgid "=== OMEGA-CHECK — Rapport de scan ==="
+msgstr "=== OMEGA-CHECK — Báo cáo quét ==="
+
+#: src/omega_check/infrastructure/exporters/text_exporter.py:51
+#, python-brace-format
+msgid "      auth      : {auth_desc}{types} [{value}]"
+msgstr "      auth      : {auth_desc}{types} [{value}]"
+
+#: src/omega_check/infrastructure/exporters/text_exporter.py:53
+#, python-brace-format
+msgid "      WAF       : {value} [{value2}]"
+msgstr "      WAF       : {value} [{value2}]"
+
+#: src/omega_check/infrastructure/exporters/text_exporter.py:56
+#, python-brace-format
+msgid "      TLS       : {tls_version}, {value} [{value2}]"
+msgstr "      TLS       : {tls_version}, {value} [{value2}]"
+
+#: src/omega_check/infrastructure/exporters/text_exporter.py:59
+#, python-brace-format
+msgid "      certificat: subject={tls_cert_subject}, issuer={tls_cert_issuer}"
+msgstr "      chứng chỉ : subject={tls_cert_subject}, issuer={tls_cert_issuer}"
+
+#: src/omega_check/infrastructure/exporters/templates/scan_report.html.j2:6
+#, python-brace-format
+msgid "OMEGA-CHECK — Rapport de scan {id}"
+msgstr "OMEGA-CHECK — Báo cáo quét {id}"
+
+#: src/omega_check/infrastructure/exporters/templates/scan_report.html.j2:104
+msgid "OMEGA-CHECK — Rapport de scan"
+msgstr "OMEGA-CHECK — Báo cáo quét"
+
+#: src/omega_check/infrastructure/exporters/templates/scan_report.html.j2:129
+msgid "OS estimé :"
+msgstr "Hệ điều hành ước đoán:"
+
+#: src/omega_check/infrastructure/exporters/templates/scan_report.html.j2:133
+msgid "Pare-feu réseau :"
+msgstr "Tường lửa mạng:"
+
+#: src/omega_check/infrastructure/exporters/templates/scan_report.html.j2:141
+msgid "Exposition :"
+msgstr "Mức phơi nhiễm:"
+
+#: src/omega_check/infrastructure/exporters/templates/scan_report.html.j2:133 src/omega_check/infrastructure/exporters/templates/scan_report.html.j2:137
+msgid "absent"
+msgstr "không có"

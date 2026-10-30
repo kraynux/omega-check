@@ -29,6 +29,7 @@ from omega_check.domain.profiles.policies import normalize_ports, parse_port_spe
 from omega_check.interfaces.tui.screens._base import OmegaScreen
 from omega_check.interfaces.tui.screens.confirm import ConfirmScreen
 from omega_check.interfaces.tui.screens.scan_progress import ScanProgressScreen
+from omega_check.shared.i18n import _
 
 if TYPE_CHECKING:
     from omega_check.app.dependency_container import DependencyContainer
@@ -36,7 +37,7 @@ if TYPE_CHECKING:
 _CUSTOM = "CUSTOM"
 _FREE_TARGET_ENTRY = "__free_entry__"
 _NO_CUSTOM_PROFILE = "__none__"
-_NO_CUSTOM_PROFILE_LABEL = "Profil ou Saisie libre ci-dessous"
+_NO_CUSTOM_PROFILE_LABEL = _("Profil ou Saisie libre ci-dessous")
 
 
 class ScanSetupScreen(OmegaScreen):
@@ -52,21 +53,21 @@ class ScanSetupScreen(OmegaScreen):
 
         yield Header()
         with Vertical(classes="omega-form-panel"):
-            yield Static("SCANNER UNE CIBLE", classes="omega-title")
+            yield Static(_("SCANNER UNE CIBLE"), classes="omega-title")
 
-            yield Static("Cible", classes="omega-subtitle")
+            yield Static(_("Cible"), classes="omega-subtitle")
             if pinned:
                 yield Select(
-                    [("(saisie libre ci-dessous)", _FREE_TARGET_ENTRY)]
-                    + [(f"* {t.host}", t.host) for t in pinned],
+                    [(_("(saisie libre ci-dessous)"), _FREE_TARGET_ENTRY)]
+                    + [(_("* {host}").format(host=t.host), t.host) for t in pinned],
                     value=_FREE_TARGET_ENTRY,
                     id="target-picker",
                 )
-            yield Input(placeholder="ex. 192.168.1.10, example.org", id="target-input")
+            yield Input(placeholder=_("ex. 192.168.1.10, example.org"), id="target-input")
 
-            yield Static("Profil", classes="omega-subtitle")
+            yield Static(_("Profil"), classes="omega-subtitle")
             yield Select(
-                [(name, name) for name in system_profile_names] + [("Personnalise (CUSTOM)", _CUSTOM)],
+                [(name, name) for name in system_profile_names] + [(_("Personnalisé (CUSTOM)"), _CUSTOM)],
                 value="minimal",
                 id="profile-select",
             )
@@ -83,16 +84,16 @@ class ScanSetupScreen(OmegaScreen):
                 classes="omega-hidden",
             )
             yield Input(
-                placeholder="ex. 80  /  22,443,8080  /  1000-2000",
+                placeholder=_("ex. 80  /  22,443,8080  /  1000-2000"),
                 id="custom-ports-input",
                 classes="omega-hidden",
             )
 
             with Horizontal(classes="omega-actions"):
                 with Container(classes="omega-btn-frame"):
-                    yield Button("Lancer", id="launch", variant="primary")
+                    yield Button(_("Lancer"), id="launch", variant="primary")
                 with Container(classes="omega-btn-frame"):
-                    yield Button("Retour", id="back")
+                    yield Button(_("Retour"), id="back")
 
             yield Static("", id="profile-detail", classes="omega-hint")
         yield Footer()
@@ -115,12 +116,13 @@ class ScanSetupScreen(OmegaScreen):
     def _update_profile_detail(self, profile_name: str | None) -> None:
         detail = self.query_one("#profile-detail", Static)
         if profile_name is None:
-            detail.update("Profil personnalise : choisissez un de vos profils ou saisissez des ports.")
+            detail.update(_("Profil personnalisé : choisissez un de vos profils ou saisissez "
+                            "des ports."))
             return
 
         profile = get_profile(self._container.profile_repository, profile_name)
         ports_str = ", ".join(str(p) for p in profile.ports)
-        detail.update(f"{profile.description}\nPorts ({len(profile.ports)}) : {ports_str}")
+        detail.update(_("{description}\nPorts ({count}) : {ports_str}").format(description=_(profile.description), count=len(profile.ports), ports_str=ports_str))
 
     def on_button_pressed(self, event: Button.Pressed) -> None:
         if event.button.id == "back":
@@ -131,7 +133,7 @@ class ScanSetupScreen(OmegaScreen):
 
         target = self.query_one("#target-input", Input).value.strip()
         if not target:
-            self.app.notify("Saisissez une cible.", severity="warning")
+            self.app.notify(_("Saisissez une cible."), severity="warning")
             return
 
         profile_name = str(self.query_one("#profile-select", Select).value)
@@ -143,8 +145,9 @@ class ScanSetupScreen(OmegaScreen):
         if profile_name == "complet":
             self.app.push_screen(
                 ConfirmScreen(
-                    title="PROFIL COMPLET",
-                    message="Ce profil est exhaustif (union de tous les profils systeme) : le scan peut etre long. Continuer ?",
+                    title=_("PROFIL COMPLET"),
+                    message=_("Ce profil est exhaustif (union de tous les profils système) : "
+                              "le scan peut être long. Continuer ?"),
                 ),
                 lambda confirmed: self._launch_if_confirmed(confirmed, target, profile_name),
             )
@@ -179,11 +182,11 @@ class ScanSetupScreen(OmegaScreen):
             try:
                 ports.extend(parse_port_spec(ports_raw))
             except (ValueError, InvalidPortError, DuplicatePortsError) as exc:
-                self.app.notify(f"Ports invalides : {exc}", severity="warning")
+                self.app.notify(_("Ports invalides : {exc}").format(exc=exc), severity="warning")
                 return
 
         if not ports:
-            self.app.notify("Choisissez un profil personnalise ou saisissez des ports.", severity="warning")
+            self.app.notify(_("Choisissez un profil personnalisé ou saisissez des ports."), severity="warning")
             return
 
         self._launch(

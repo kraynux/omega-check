@@ -20,6 +20,7 @@ from cryptography.x509.oid import ExtensionOID, NameOID
 
 from omega_check.core.enums import ConfidenceLevel
 from omega_check.domain.services.models import Service
+from omega_check.shared.i18n import _
 
 
 def _common_name(name: x509.Name) -> str | None:
@@ -55,7 +56,7 @@ class SslTlsProber:
                 cipher_info = ssl_sock.cipher()
                 cert_der = ssl_sock.getpeercert(binary_form=True)
         except (ssl.SSLError, OSError) as exc:
-            return Service(evidence=[f"echec du handshake TLS : {exc}"])
+            return Service(evidence=[_("échec du handshake TLS : {exc}").format(exc=exc)])
 
         subject = issuer = None
         san: list[str] = []
@@ -65,9 +66,9 @@ class SslTlsProber:
             issuer = _common_name(cert.issuer)
             san = _subject_alt_names(cert)
 
-        evidence = [f"handshake TLS reussi : {tls_version}"]
+        evidence = [_("handshake TLS réussi : {tls_version}").format(tls_version=tls_version)]
         if subject:
-            evidence.append(f"certificat subject={subject}")
+            evidence.append(_("certificat subject={subject}").format(subject=subject))
 
         return Service(
             tls_library=None,  # fingerprint de librairie hors-scope Phase 3 (comportemental, Phase 4+)

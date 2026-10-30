@@ -1,0 +1,162 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: omega-check\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: src/omega_check/application/commands/clear_directory.py:52
+msgid "contient l'installation de omega-check"
+msgstr ""
+
+#: src/omega_check/application/commands/run_scan.py:112
+#, python-format
+msgid "Scan terminé : %d port(s) analysé(s)."
+msgstr ""
+
+#: src/omega_check/infrastructure/exporters/text_exporter.py:17
+msgid "=== OMEGA-CHECK — Rapport de scan ==="
+msgstr ""
+
+#: src/omega_check/infrastructure/exporters/text_exporter.py:51
+#, python-brace-format
+msgid "      auth      : {auth_desc}{types} [{value}]"
+msgstr ""
+
+#: src/omega_check/infrastructure/exporters/text_exporter.py:53
+#, python-brace-format
+msgid "      WAF       : {value} [{value2}]"
+msgstr ""
+
+#: src/omega_check/infrastructure/exporters/text_exporter.py:56
+#, python-brace-format
+msgid "      TLS       : {tls_version}, {value} [{value2}]"
+msgstr ""
+
+#: src/omega_check/infrastructure/exporters/text_exporter.py:59
+#, python-brace-format
+msgid "      certificat: subject={tls_cert_subject}, issuer={tls_cert_issuer}"
+msgstr ""
+
+#: src/omega_check/infrastructure/storage/sqlite/scan_repository.py:139
+msgid "échec de sauvegarde du host pour le scan {scan_id!r}"
+msgstr ""
+
+#: src/omega_check/infrastructure/storage/sqlite/target_repository.py:26
+msgid "échec d'épinglage de la cible {host!r}"
+msgstr ""
+
+#: src/omega_check/interfaces/tui/app.py:39
+msgid "🔍 OMEGA-CHECK"
+msgstr ""
+
+#: src/omega_check/interfaces/tui/screens/compare.py:32
+msgid "COMPARAISON DE SCANS"
+msgstr ""
+
+#: src/omega_check/interfaces/tui/screens/help_screen.py:29
+msgid "Saisir une cible (IP ou hostname) et un profil de ports, puis lancer le scan. Chaque port OPEN est ensuite identifié (protocole, logiciel, rôle) automatiquement."
+msgstr ""
+
+#: src/omega_check/interfaces/tui/screens/help_screen.py:37
+msgid "Liste tous les scans passés : détail complet, comparaison entre deux scans (marquer une référence puis comparer), ou rejouer un scan sur la même cible."
+msgstr ""
+
+#: src/omega_check/interfaces/tui/screens/help_screen.py:44
+msgid "Depuis le détail d'un scan : JSON (structure complète), texte (rapport compact) ou HTML (rapport visuel, thème d'export indépendant du thème de l'interface)."
+msgstr ""
+
+#: src/omega_check/interfaces/tui/screens/help_screen.py:51
+msgid "Omega-check identifie les services d'une cible unique (scan fixe, pas de dérive vers d'autres IPs) : ports TCP, protocole, logiciel, authentification, WAF, TLS, rôle inféré. Jamais de test actif ni d'authentification tentée."
+msgstr ""
+
+#: src/omega_check/interfaces/tui/screens/history.py:109
+msgid "Impossible de rejouer ce scan (profil inconnu)."
+msgstr ""
+
+#: src/omega_check/interfaces/tui/screens/quit_confirm.py:21
+msgid "QUITTER OMEGA-CHECK ?"
+msgstr ""
+
+#: src/omega_check/interfaces/tui/screens/scan_setup.py:40
+msgid "Profil ou Saisie libre ci-dessous"
+msgstr ""
+
+#: src/omega_check/interfaces/tui/screens/scan_setup.py:62
+#, python-brace-format
+msgid "* {host}"
+msgstr ""
+
+#: src/omega_check/interfaces/tui/screens/scan_setup.py:70
+msgid "Personnalisé (CUSTOM)"
+msgstr ""
+
+#: src/omega_check/interfaces/tui/screens/scan_setup.py:87
+msgid "ex. 80  /  22,443,8080  /  1000-2000"
+msgstr ""
+
+#: src/omega_check/interfaces/tui/screens/scan_setup.py:119
+msgid "Profil personnalisé : choisissez un de vos profils ou saisissez des ports."
+msgstr ""
+
+#: src/omega_check/interfaces/tui/screens/scan_setup.py:149
+msgid "Ce profil est exhaustif (union de tous les profils système) : le scan peut être long. Continuer ?"
+msgstr ""
+
+#: src/omega_check/interfaces/tui/screens/scan_setup.py:189
+msgid "Choisissez un profil personnalisé ou saisissez des ports."
+msgstr ""
+
+#: src/omega_check/interfaces/tui/screens/settings_screen.py:82
+msgid "Supprimer les cibles"
+msgstr ""
+
+#: src/omega_check/interfaces/tui/screens/settings_screen.py:138
+msgid "SUPPRIMER LES CIBLES ?"
+msgstr ""
+
+#: src/omega_check/interfaces/tui/screens/settings_screen.py:139
+msgid "Toutes les cibles épinglées seront définitivement supprimées."
+msgstr ""
+
+#: src/omega_check/interfaces/tui/screens/settings_screen.py:199
+msgid "Cibles supprimées."
+msgstr ""
+
+#: src/omega_check/interfaces/tui/screens/show_detail.py:38
+#, python-brace-format
+msgid "Cible : {target} ({target_ip}) — profil {value} — statut {value2}"
+msgstr ""
+
+#: src/omega_check/interfaces/tui/screens/targets.py:44
+msgid "Désépingler"
+msgstr ""
+
+#: src/omega_check/infrastructure/exporters/templates/scan_report.html.j2:6
+#, python-brace-format
+msgid "OMEGA-CHECK — Rapport de scan {id}"
+msgstr ""
+
+#: src/omega_check/infrastructure/exporters/templates/scan_report.html.j2:104
+msgid "OMEGA-CHECK — Rapport de scan"
+msgstr ""
+
+#: src/omega_check/infrastructure/exporters/templates/scan_report.html.j2:129
+msgid "OS estimé :"
+msgstr ""
+
+#: src/omega_check/infrastructure/exporters/templates/scan_report.html.j2:133
+msgid "Pare-feu réseau :"
+msgstr ""
+
+#: src/omega_check/infrastructure/exporters/templates/scan_report.html.j2:133 src/omega_check/infrastructure/exporters/templates/scan_report.html.j2:137
+msgid "absent"
+msgstr ""
+
+#: src/omega_check/infrastructure/exporters/templates/scan_report.html.j2:141
+msgid "Exposition :"
+msgstr ""

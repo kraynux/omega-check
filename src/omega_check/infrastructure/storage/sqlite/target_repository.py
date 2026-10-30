@@ -6,6 +6,7 @@ import sqlite3
 
 from omega_check.domain.targets.models import PinnedTarget
 from omega_check.infrastructure.exceptions import StorageError
+from omega_check.shared.i18n import _
 
 
 class SqliteTargetRepository:
@@ -22,7 +23,7 @@ class SqliteTargetRepository:
             )
             self._connection.commit()
         except sqlite3.Error as exc:
-            raise StorageError(f"echec d'epinglage de la cible {pinned.host!r}") from exc
+            raise StorageError(_("échec d'épinglage de la cible {host!r}").format(host=pinned.host)) from exc
 
     def unpin(self, host: str) -> None:
         self._connection.execute("DELETE FROM pinned_targets WHERE host = ?", (host,))

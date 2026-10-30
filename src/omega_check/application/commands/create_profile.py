@@ -11,11 +11,12 @@ from omega_check.domain.profiles.policies import (
     validate_ports,
 )
 from omega_check.ports.profile_repository import ProfileRepository
+from omega_check.shared.i18n import _
 
 
 class ProfileAlreadyExistsError(DomainError):
     def __init__(self, name: str) -> None:
-        super().__init__(f"Un profil utilisateur '{name}' existe deja")
+        super().__init__(_("Un profil utilisateur '{name}' existe déjà").format(name=name))
         self.name = name
 
 

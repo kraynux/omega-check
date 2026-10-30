@@ -69,7 +69,7 @@ def test_export_text_contains_key_facts() -> None:
 
 def test_export_text_handles_missing_host() -> None:
     output = export_text(_scan(), None)
-    assert "echoue" in output
+    assert "échoué" in output
 
 
 def test_export_text_includes_auth_waf_and_tls_details() -> None:

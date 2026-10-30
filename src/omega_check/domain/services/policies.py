@@ -11,6 +11,7 @@ import re
 from omega_check.core.enums import ConfidenceLevel
 from omega_check.domain.profiles.defaults import SYSTEM_PROFILES
 from omega_check.domain.services.models import Service, TransportLayer
+from omega_check.shared.i18n import _
 
 # --- HTTP : header Server -----------------------------------------------
 
@@ -61,7 +62,7 @@ _WAF_SIGNATURES: tuple[tuple[str, str | None, str], ...] = (
     ("server", "akamaighost", "Akamai"),
     ("x-sdk", "imperva", "Imperva Incapsula"),
     ("x-iinfo", None, "Imperva Incapsula"),
-    ("server", "awselb", "AWS ELB (pas un WAF applicatif a proprement parler)"),
+    ("server", "awselb", _("AWS ELB (pas un WAF applicatif à proprement parler)")),
 )
 
 
@@ -176,13 +177,13 @@ def infer_role(port: int, service: Service) -> tuple[str | None, ConfidenceLevel
     demanderait d'etendre Service ou l'evidence, pas fait ici pour eviter
     une regle qui lit du texte non structure."""
     if service.protocol_name in ("HTTP", "HTTPS"):
-        return "serveur web", ConfidenceLevel.INFERRED
+        return _("serveur web"), ConfidenceLevel.INFERRED
     if service.protocol_name == "SSH":
-        return "acces shell", ConfidenceLevel.CORROBORATED
+        return _("accès shell"), ConfidenceLevel.CORROBORATED
     if service.protocol_name == "VNC":
-        return "acces graphique", ConfidenceLevel.CORROBORATED
+        return _("accès graphique"), ConfidenceLevel.CORROBORATED
     if port in _DATABASE_PORTS:
-        return "base de donnees", ConfidenceLevel.INFERRED
+        return _("base de données"), ConfidenceLevel.INFERRED
     return None, ConfidenceLevel.UNKNOWN
 
 

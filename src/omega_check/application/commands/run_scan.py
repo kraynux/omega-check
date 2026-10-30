@@ -32,6 +32,7 @@ from omega_check.ports.scan_repository import ScanRepository
 from omega_check.ports.ssh_prober import SshProber
 from omega_check.ports.tls_prober import TlsProber
 from omega_check.ports.vnc_prober import VncProber
+from omega_check.shared.i18n import N_
 
 _logger = logging.getLogger("omega_check.scan")
 """Nom de logger stable : interfaces/tui/screens/scan_progress.py y attache
@@ -73,27 +74,27 @@ def run_scan(
         status=ScanStatus.RUNNING,
     )
 
-    _logger.info("Resolution DNS de %r...", target)
+    _logger.info(N_("Résolution DNS de %r..."), target)
     try:
         target_ip = dns_resolver.resolve(target)
     except TargetResolutionError as exc:
-        _logger.error("Resolution DNS echouee pour %r : %s", target, exc.reason or exc)
+        _logger.error(N_("Résolution DNS échouée pour %r : %s"), target, exc.reason or exc)
         scan.status = ScanStatus.FAILED
         scan_repository.save(scan)
         return scan, None
 
-    _logger.info("Cible resolue : %s -> %s", target, target_ip)
+    _logger.info(N_("Cible résolue : %s -> %s"), target, target_ip)
     scan.target_ip = target_ip
 
     probed_ports: list[Port] = []
     for port in ports:
-        _logger.info("Scan du port %s/%s...", port, protocol)
+        _logger.info(N_("Scan du port %s/%s..."), port, protocol)
         probed_port = port_prober.probe(target_ip, port, protocol, timeout, retries)
         probed_ports.append(probed_port)
-        _logger.info("Port %s/%s : %s", port, protocol, probed_port.state.value)
+        _logger.info(N_("Port %s/%s : %s"), port, protocol, probed_port.state.value)
 
         if probed_port.state == PortState.OPEN:
-            _logger.info("Identification du service sur le port %s...", port)
+            _logger.info(N_("Identification du service sur le port %s..."), port)
             probed_port.service = probe_service(
                 target_ip=target_ip,
                 port=probed_port.port_number,
@@ -108,7 +109,7 @@ def run_scan(
 
     host = Host(ip=target_ip, ports=probed_ports)
     scan.status = ScanStatus.COMPLETED
-    _logger.info("Scan termine : %d port(s) analyse(s).", len(probed_ports))
+    _logger.info(N_("Scan terminé : %d port(s) analysé(s)."), len(probed_ports))
     scan_repository.save(scan)
     assert scan.id is not None  # toujours fixe par id_factory() ci-dessus, jamais None en pratique
     scan_repository.save_host(scan.id, host)

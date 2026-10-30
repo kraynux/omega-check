@@ -13,6 +13,7 @@ import socket
 
 from omega_check.core.enums import ConfidenceLevel, PortState
 from omega_check.domain.services.models import Port
+from omega_check.shared.i18n import _
 
 
 class TcpPortProber:
@@ -41,7 +42,7 @@ class TcpPortProber:
                         protocol=protocol,
                         state=PortState.CLOSED,
                         state_confidence=ConfidenceLevel.VERIFIED,
-                        evidence=["ECONNREFUSED (RST recu)"],
+                        evidence=[_("ECONNREFUSED (RST reçu)")],
                     )
                 except TimeoutError:
                     last_timeout = True
@@ -52,7 +53,7 @@ class TcpPortProber:
                         protocol=protocol,
                         state=PortState.FILTERED,
                         state_confidence=ConfidenceLevel.INFERRED,
-                        evidence=[f"erreur reseau : {exc}"],
+                        evidence=[_("erreur réseau : {exc}").format(exc=exc)],
                     )
                 else:
                     return Port(
@@ -60,11 +61,11 @@ class TcpPortProber:
                         protocol=protocol,
                         state=PortState.OPEN,
                         state_confidence=ConfidenceLevel.VERIFIED,
-                        evidence=["connexion TCP etablie"],
+                        evidence=[_("connexion TCP établie")],
                     )
 
         evidence = (
-            f"timeout apres {retries + 1} tentative(s)" if last_timeout else "aucune reponse"
+            _("timeout après {value} tentative(s)").format(value=retries + 1) if last_timeout else _("aucune réponse")
         )
         return Port(
             port_number=port,

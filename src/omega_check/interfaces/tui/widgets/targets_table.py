@@ -6,6 +6,7 @@ from __future__ import annotations
 from textual.widgets import DataTable
 
 from omega_check.domain.targets.models import PinnedTarget
+from omega_check.shared.i18n import _
 
 
 class TargetsTable(DataTable[str]):
@@ -13,7 +14,7 @@ class TargetsTable(DataTable[str]):
 
     def on_mount(self) -> None:
         self.cursor_type = "row"
-        self.add_columns("Hote", "Epingle le", "Note")
+        self.add_columns(_("Hôte"), _("Épinglé le"), _("Note"))
 
     def set_targets(self, targets: tuple[PinnedTarget, ...]) -> None:
         self.clear()

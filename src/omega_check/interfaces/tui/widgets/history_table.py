@@ -6,6 +6,7 @@ from __future__ import annotations
 from textual.widgets import DataTable
 
 from omega_check.domain.scans.models import Scan
+from omega_check.shared.i18n import _
 
 
 class HistoryTable(DataTable[str]):
@@ -13,7 +14,7 @@ class HistoryTable(DataTable[str]):
 
     def on_mount(self) -> None:
         self.cursor_type = "row"
-        self.add_columns("Cible", "Date", "Profil", "Statut")
+        self.add_columns(_("Cible"), _("Date"), _("Profil"), _("Statut"))
 
     def set_scans(self, scans: tuple[Scan, ...]) -> None:
         self.clear()

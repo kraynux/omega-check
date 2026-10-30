@@ -8,6 +8,7 @@ import socket
 from omega_check.core.enums import ConfidenceLevel
 from omega_check.domain.services.models import Service
 from omega_check.domain.services.policies import parse_ssh_banner
+from omega_check.shared.i18n import _
 
 
 class SocketSshProber:
@@ -19,13 +20,13 @@ class SocketSshProber:
                 sock.settimeout(timeout)
                 raw = sock.recv(256)
         except OSError as exc:
-            return Service(evidence=[f"echec de connexion SSH : {exc}"])
+            return Service(evidence=[_("échec de connexion SSH : {exc}").format(exc=exc)])
 
         banner = raw.decode("ascii", errors="replace").strip()
         if not banner.startswith("SSH-"):
             return Service(
                 protocol_confidence=ConfidenceLevel.UNKNOWN,
-                evidence=[f"banner inattendu (pas SSH) : {banner!r}"],
+                evidence=[_("banner inattendu (pas SSH) : {banner!r}").format(banner=banner)],
             )
 
         software, version = parse_ssh_banner(banner)
@@ -36,5 +37,5 @@ class SocketSshProber:
             software_confidence=ConfidenceLevel.DECLARED if software else ConfidenceLevel.UNKNOWN,
             version=version,
             version_confidence=ConfidenceLevel.DECLARED if version else ConfidenceLevel.UNKNOWN,
-            evidence=[f"banner : {banner}"],
+            evidence=[_("banner : {banner}").format(banner=banner)],
         )

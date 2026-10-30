@@ -9,24 +9,25 @@ from __future__ import annotations
 
 from omega_check.domain.scans.models import Scan
 from omega_check.domain.targets.models import Host
+from omega_check.shared.i18n import _
 
 
 def export_text(scan: Scan, host: Host | None) -> str:
     lines = [
-        "=== OMEGA-CHECK — Rapport de scan ===",
-        f"Scan ID    : {scan.id}",
-        f"Cible      : {scan.target} ({scan.target_ip or 'non resolue'})",
-        f"Date       : {scan.created_at}",
-        f"Profil     : {scan.profile_name or '-'} (origine: {scan.profile_origin or '-'})",
-        f"Statut     : {scan.status.value}",
+        _("=== OMEGA-CHECK — Rapport de scan ==="),
+        _("Scan ID    : {id}").format(id=scan.id),
+        _("Cible      : {target} ({value})").format(target=scan.target, value=scan.target_ip or _("non résolue")),
+        _("Date       : {created_at}").format(created_at=scan.created_at),
+        _("Profil     : {value} (origine: {value2})").format(value=scan.profile_name or '-', value2=scan.profile_origin or '-'),
+        _("Statut     : {value}").format(value=scan.status.value),
         "",
     ]
 
     if host is None:
-        lines.append("Aucun resultat (scan echoue).")
+        lines.append(_("Aucun résultat (scan échoué)."))
         return "\n".join(lines)
 
-    lines.append(f"{len(host.ports)} port(s) scanne(s) :")
+    lines.append(_("{count} port(s) scanné(s) :").format(count=len(host.ports)))
     for port in sorted(host.ports, key=lambda p: p.port_number):
         lines.append(
             f"  - {port.port_number}/{port.protocol} : {port.state.value} "
@@ -36,26 +37,26 @@ def export_text(scan: Scan, host: Host | None) -> str:
         if service is None or not service.protocol_name:
             continue
 
-        lines.append(f"      protocole : {service.protocol_name} [{service.protocol_confidence.value}]")
+        lines.append(_("      protocole : {protocol_name} [{value}]").format(protocol_name=service.protocol_name, value=service.protocol_confidence.value))
         if service.software:
             lines.append(
                 f"      logiciel  : {service.software} {service.version or ''} "
                 f"[{service.software_confidence.value}]".rstrip()
             )
         if service.role:
-            lines.append(f"      role      : {service.role} [{service.role_confidence.value}]")
+            lines.append(_("      rôle      : {role} [{value}]").format(role=service.role, value=service.role_confidence.value))
         if service.auth_required is not None:
-            auth_desc = "requise" if service.auth_required else "non requise"
+            auth_desc = "requise" if service.auth_required else _("non requise")
             types = f" ({', '.join(service.auth_types)})" if service.auth_types else ""
-            lines.append(f"      auth      : {auth_desc}{types} [{service.auth_required_confidence.value}]")
+            lines.append(_("      auth      : {auth_desc}{types} [{value}]").format(auth_desc=auth_desc, types=types, value=service.auth_required_confidence.value))
         if service.waf_present:
-            lines.append(f"      WAF       : {service.waf_name_guess or 'present'} [{service.waf_confidence.value}]")
+            lines.append(_("      WAF       : {value} [{value2}]").format(value=service.waf_name_guess or _("présent"), value2=service.waf_confidence.value))
         if service.tls_version:
             lines.append(
-                f"      TLS       : {service.tls_version}, {service.tls_cipher or '?'} "
-                f"[{service.tls_version_confidence.value}]"
+                _("      TLS       : {tls_version}, {value} [{value2}]").format(tls_version=service.tls_version, value=service.tls_cipher or '?', value2=service.tls_version_confidence.value)
             )
         if service.tls_cert_subject:
-            lines.append(f"      certificat: subject={service.tls_cert_subject}, issuer={service.tls_cert_issuer}")
+            lines.append(_("      certificat: subject={tls_cert_subject}, "
+                           "issuer={tls_cert_issuer}").format(tls_cert_subject=service.tls_cert_subject, tls_cert_issuer=service.tls_cert_issuer))
 
     return "\n".join(lines)

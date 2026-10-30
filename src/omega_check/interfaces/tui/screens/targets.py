@@ -16,6 +16,7 @@ from omega_check.application.commands.unpin_target import unpin_target
 from omega_check.application.queries.list_targets import list_targets
 from omega_check.interfaces.tui.screens._base import OmegaScreen
 from omega_check.interfaces.tui.widgets.targets_table import TargetsTable
+from omega_check.shared.i18n import _
 
 if TYPE_CHECKING:
     from omega_check.app.dependency_container import DependencyContainer
@@ -32,17 +33,17 @@ class TargetsScreen(OmegaScreen):
     def compose(self) -> ComposeResult:
         yield Header()
         with Vertical(classes="omega-panel"):
-            yield Static("CIBLES EPINGLEES", classes="omega-title")
+            yield Static(_("CIBLES ÉPINGLÉES"), classes="omega-title")
             yield TargetsTable(id="targets-table")
-            yield Input(placeholder="ex. 192.168.1.10, example.org", id="host-input")
-            yield Input(placeholder="Note (optionnel)", id="note-input")
+            yield Input(placeholder=_("ex. 192.168.1.10, example.org"), id="host-input")
+            yield Input(placeholder=_("Note (optionnel)"), id="note-input")
             with Horizontal(classes="omega-actions"):
                 with Container(classes="omega-btn-frame"):
-                    yield Button("Epingler", id="pin", variant="primary")
+                    yield Button(_("Épingler"), id="pin", variant="primary")
                 with Container(classes="omega-btn-frame"):
-                    yield Button("Desepingler", id="unpin")
+                    yield Button(_("Désépingler"), id="unpin")
                 with Container(classes="omega-btn-frame"):
-                    yield Button("Retour", id="back")
+                    yield Button(_("Retour"), id="back")
         yield Footer()
 
     def on_mount(self) -> None:
@@ -63,7 +64,7 @@ class TargetsScreen(OmegaScreen):
         if event.button.id == "pin":
             raw_input = self.query_one("#host-input", Input).value.strip()
             if not raw_input:
-                self.app.notify("Saisissez un hote.", severity="warning")
+                self.app.notify(_("Saisissez un hôte."), severity="warning")
                 return
             note = self.query_one("#note-input", Input).value.strip() or None
             pin_target(
@@ -79,7 +80,7 @@ class TargetsScreen(OmegaScreen):
 
         if event.button.id == "unpin":
             if self._selected_host is None:
-                self.app.notify("Selectionnez d'abord une ligne.", severity="warning")
+                self.app.notify(_("Sélectionnez d'abord une ligne."), severity="warning")
                 return
             unpin_target(target_repository=self._container.target_repository, host=self._selected_host)
             self._selected_host = None

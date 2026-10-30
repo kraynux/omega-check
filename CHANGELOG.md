@@ -2,7 +2,24 @@
 
 Format inspiré de [Keep a Changelog](https://keepachangelog.com/).
 
+## [1.5.0] — 2026-10-29
+
+### Ajouté
+
+- Interface en 17 langues (français, anglais, espagnol, portugais (Brésil), italien, allemand, néerlandais, polonais, russe, chinois simplifié, vietnamien, thaï, indonésien, japonais, coréen, hindi et arabe) : Réglages → « Langue / Language », appliquée après un redémarrage de l'interface ; variable `OMEGA_CHECK_LANG` pour forcer une langue le temps d'une session. Lancé depuis omega-suite, l'outil prend la langue de la suite.
+- Réglage « Langue des exports » (« Comme l'interface » par défaut) : les rapports HTML et texte s'écrivent dans la langue choisie ; en arabe, le rapport HTML se lit de droite à gauche. Les exports JSON et CSV restent des données (clés et valeurs inchangées).
+
+### Modifié
+
+- Accents rétablis dans tous les textes français de l'interface et des rapports.
+- Les résultats enregistrés en français sont retraduits à l'affichage et dans les exports.
+- La ligne de commande reste en français.
+
 ## [Unreleased]
+
+### Corrigé
+
+- Réglages : « Supprimer les exports » et « Supprimer les screenshots » vident le dossier **choisi** dans les champs Export / Captures (et plus toujours le dossier par défaut), avec le chemin exact dans la confirmation ; l'export propose désormais aussi ce dossier (le réglage était enregistré mais jamais relu). Seul le contenu est supprimé, liens symboliques non suivis, dossiers système/personnels et dossier de l'application refusés, éléments non supprimables signalés, suppression en arrière-plan (correctif 2026-10-27 commun à la suite).
 
 ### Ajouté
 

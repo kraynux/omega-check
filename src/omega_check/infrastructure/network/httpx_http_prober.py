@@ -20,6 +20,7 @@ import httpx
 from omega_check.core.enums import ConfidenceLevel
 from omega_check.domain.services.models import Service
 from omega_check.domain.services.policies import classify_http_auth, detect_waf, parse_server_header
+from omega_check.shared.i18n import _
 
 USER_AGENT = "omega-check-httpx/1.0"
 """Identifie le trafic genere dans les journaux de la cible plutot que de
@@ -46,7 +47,7 @@ class HttpxHttpProber:
         except httpx.HTTPError as exc:
             return Service(
                 protocol_confidence=ConfidenceLevel.UNKNOWN,
-                evidence=[f"echec de la requete HTTP : {exc}"],
+                evidence=[_("échec de la requête HTTP : {exc}").format(exc=exc)],
             )
 
         headers = dict(response.headers)
@@ -58,7 +59,7 @@ class HttpxHttpProber:
 
         evidence = [f"HTTP {response.status_code} {response.reason_phrase}"]
         if "server" in headers:
-            evidence.append(f"header Server: {headers['server']}")
+            evidence.append(_("header Server: {server}").format(server=headers['server']))
 
         return Service(
             protocol_name="HTTPS" if use_tls else "HTTP",

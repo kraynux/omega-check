@@ -11,6 +11,7 @@ from textual.widgets import Button, Footer, Header, Static
 
 from omega_check.application.queries.compare_scans import compare_scans
 from omega_check.interfaces.tui.screens._base import OmegaScreen
+from omega_check.shared.i18n import _
 
 if TYPE_CHECKING:
     from omega_check.app.dependency_container import DependencyContainer
@@ -28,27 +29,27 @@ class CompareScreen(OmegaScreen):
 
         yield Header()
         with VerticalScroll(classes="omega-panel"):
-            yield Static("COMPARAISON DE SCANS", classes="omega-title")
-            yield Static(f"{comparison.scan_a.id} -> {comparison.scan_b.id}", classes="omega-subtitle")
+            yield Static(_("COMPARAISON DE SCANS"), classes="omega-title")
+            yield Static(_("{id} -> {id2}").format(id=comparison.scan_a.id, id2=comparison.scan_b.id), classes="omega-subtitle")
 
             if comparison.ports_only_in_a:
-                yield Static(f"Ports presents seulement dans {comparison.scan_a.id} :")
+                yield Static(_("Ports présents seulement dans {id} :").format(id=comparison.scan_a.id))
                 yield Static(", ".join(str(p) for p in comparison.ports_only_in_a))
 
             if comparison.ports_only_in_b:
-                yield Static(f"Ports presents seulement dans {comparison.scan_b.id} :")
+                yield Static(_("Ports présents seulement dans {id} :").format(id=comparison.scan_b.id))
                 yield Static(", ".join(str(p) for p in comparison.ports_only_in_b))
 
             if comparison.state_changes:
-                yield Static("Changements d'etat :", classes="omega-subtitle")
+                yield Static(_("Changements d'état :"), classes="omega-subtitle")
                 for change in comparison.state_changes:
-                    yield Static(f"  port {change.port_number} : {change.state_a.value} -> {change.state_b.value}")
+                    yield Static(_("  port {port_number} : {value} -> {value2}").format(port_number=change.port_number, value=change.state_a.value, value2=change.state_b.value))
 
             if not (comparison.ports_only_in_a or comparison.ports_only_in_b or comparison.state_changes):
-                yield Static("Aucune difference detectee.")
+                yield Static(_("Aucune différence détectée."))
 
             with Horizontal(classes="omega-actions"), Container(classes="omega-btn-frame"):
-                yield Button("Retour", id="back")
+                yield Button(_("Retour"), id="back")
         yield Footer()
 
     def on_button_pressed(self, event: Button.Pressed) -> None:

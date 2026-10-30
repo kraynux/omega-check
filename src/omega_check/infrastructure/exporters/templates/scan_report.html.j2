@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="fr">
+<html lang="{{ html_lang() }}" dir="{{ html_dir() }}">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>OMEGA-CHECK — Rapport de scan {{ scan.id }}</title>
+<title>{{ _("OMEGA-CHECK — Rapport de scan {id}").format(id=scan.id) }}</title>
 <style>
   /* Couleurs pilotees par le theme d'export choisi (voir
      infrastructure/exporters/html_theme_resolver.py, omega_lib.theme.policies
@@ -101,54 +101,54 @@
 </head>
 <body>
   <div class="container">
-    <h1>OMEGA-CHECK — Rapport de scan</h1>
+    <h1>{{ _("OMEGA-CHECK — Rapport de scan") }}</h1>
 
     <div class="meta-grid">
-      <div class="meta-item"><strong>Cible :</strong> {{ scan.target }} ({{ scan.target_ip or "non résolue" }})</div>
-      <div class="meta-item"><strong>Date :</strong> {{ scan.created_at }}</div>
-      <div class="meta-item"><strong>Profil :</strong> {{ scan.profile_name or "-" }} (origine : {{ scan.profile_origin or "-" }})</div>
-      <div class="meta-item"><strong>Statut :</strong> {{ scan.status.value }}</div>
-      <div class="meta-item"><strong>Scan ID :</strong> {{ scan.id }}</div>
+      <div class="meta-item"><strong>{{ _("Cible :") }}</strong> {{ scan.target }} ({{ scan.target_ip or _("non résolue") }})</div>
+      <div class="meta-item"><strong>{{ _("Date :") }}</strong> {{ scan.created_at }}</div>
+      <div class="meta-item"><strong>{{ _("Profil :") }}</strong> {{ _("{profile_name} (origine : {profile_origin})").format(profile_name=(scan.profile_name or "-"), profile_origin=(scan.profile_origin or "-")) }}</div>
+      <div class="meta-item"><strong>{{ _("Statut :") }}</strong> {{ scan.status.value }}</div>
+      <div class="meta-item"><strong>{{ _("Scan ID :") }}</strong> {{ scan.id }}</div>
     </div>
 
     {% if host is none %}
-      <p>Aucun résultat (scan échoué).</p>
+      <p>{{ _("Aucun résultat (scan échoué).") }}</p>
     {% else %}
       {% set states = host.ports | map(attribute="state.value") | list %}
       <div class="stats-grid">
-        <div class="stat"><div class="stat-value">{{ host.ports|length }}</div><div>Ports scannés</div></div>
-        <div class="stat"><div class="stat-value open">{{ states | select("equalto", "open") | list | length }}</div><div>Ouverts</div></div>
-        <div class="stat"><div class="stat-value closed">{{ states | select("equalto", "closed") | list | length }}</div><div>Fermés</div></div>
-        <div class="stat"><div class="stat-value filtered">{{ states | select("equalto", "filtered") | list | length }}</div><div>Filtrés</div></div>
+        <div class="stat"><div class="stat-value">{{ host.ports|length }}</div><div>{{ _("Ports scannés") }}</div></div>
+        <div class="stat"><div class="stat-value open">{{ states | select("equalto", "open") | list | length }}</div><div>{{ _("Ouverts") }}</div></div>
+        <div class="stat"><div class="stat-value closed">{{ states | select("equalto", "closed") | list | length }}</div><div>{{ _("Fermés") }}</div></div>
+        <div class="stat"><div class="stat-value filtered">{{ states | select("equalto", "filtered") | list | length }}</div><div>{{ _("Filtrés") }}</div></div>
       </div>
 
       {% if host.os_guess or host.firewall_network_present is not none or host.waf_present is not none or host.exposure %}
-      <h2>Hôte</h2>
+      <h2>{{ _("Hôte") }}</h2>
       <div class="meta-grid">
         {% if host.os_guess %}
-        <div class="meta-item"><strong>OS estimé :</strong> {{ host.os_guess }}
+        <div class="meta-item"><strong>{{ _("OS estimé :") }}</strong> {{ host.os_guess }}
           <span class="confidence">[{{ host.os_confidence.value }}]</span></div>
         {% endif %}
         {% if host.firewall_network_present is not none %}
-        <div class="meta-item"><strong>Pare-feu réseau :</strong> {{ "présent" if host.firewall_network_present else "absent" }}
+        <div class="meta-item"><strong>{{ _("Pare-feu réseau :") }}</strong> {{ _("présent") if host.firewall_network_present else _("absent") }}
           <span class="confidence">[{{ host.firewall_network_confidence.value }}]</span></div>
         {% endif %}
         {% if host.waf_present is not none %}
-        <div class="meta-item"><strong>WAF :</strong> {{ host.waf_name_guess or ("présent" if host.waf_present else "absent") }}
+        <div class="meta-item"><strong>WAF :</strong> {{ host.waf_name_guess or (_("présent") if host.waf_present else _("absent")) }}
           <span class="confidence">[{{ host.waf_confidence.value }}]</span></div>
         {% endif %}
         {% if host.exposure %}
-        <div class="meta-item"><strong>Exposition :</strong> {{ host.exposure }}
+        <div class="meta-item"><strong>{{ _("Exposition :") }}</strong> {{ host.exposure }}
           <span class="confidence">[{{ host.exposure_confidence.value }}]</span></div>
         {% endif %}
       </div>
       {% endif %}
 
-      <h2>Ports</h2>
+      <h2>{{ _("Ports") }}</h2>
       <div class="box">
         <table>
           <thead>
-            <tr><th>Port</th><th>Protocole</th><th>État</th><th>Service identifié</th><th>Rôle</th></tr>
+            <tr><th>{{ _("Port") }}</th><th>{{ _("Protocole") }}</th><th>{{ _("État") }}</th><th>{{ _("Service identifié") }}</th><th>{{ _("Rôle") }}</th></tr>
           </thead>
           <tbody>
             {% for port in host.ports|sort(attribute="port_number") %}
@@ -180,17 +180,17 @@
             <tr>
               <td colspan="5" class="service-detail">
                 {% if port.service.auth_required is not none %}
-                  Auth : {{ "requise" if port.service.auth_required else "non requise" }}
+                  {{ _("Auth : {value}").format(value=(_("requise") if port.service.auth_required else _("non requise"))) }}
                   {% if port.service.auth_types %}({{ port.service.auth_types|join(", ") }}){% endif %}
                   <span class="confidence">[{{ port.service.auth_required_confidence.value }}]</span>
                 {% endif %}
                 {% if port.service.waf_present %}
-                  · WAF : {{ port.service.waf_name_guess or "présent" }}
+                  · WAF : {{ port.service.waf_name_guess or _("présent") }}
                   <span class="confidence">[{{ port.service.waf_confidence.value }}]</span>
                 {% endif %}
                 {% if port.service.tls_version %}
                   · TLS : {{ port.service.tls_version }}, {{ port.service.tls_cipher or "?" }}
-                  {% if port.service.tls_cert_subject %}(certificat : {{ port.service.tls_cert_subject }}){% endif %}
+                  {% if port.service.tls_cert_subject %}{{ _("(certificat : {tls_cert_subject})").format(tls_cert_subject=port.service.tls_cert_subject) }}{% endif %}
                 {% endif %}
               </td>
             </tr>
@@ -201,7 +201,7 @@
       </div>
     {% endif %}
 
-    <footer>Rapport généré par <strong>OMEGA-CHECK</strong></footer>
+    <footer>{{ _("Rapport généré par") }} <strong>OMEGA-CHECK</strong></footer>
   </div>
 </body>
 </html>

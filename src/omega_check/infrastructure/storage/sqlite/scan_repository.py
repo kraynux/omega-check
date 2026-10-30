@@ -20,6 +20,7 @@ from omega_check.domain.scans.models import Scan
 from omega_check.domain.services.models import Port, RoleElement, Service, TransportLayer
 from omega_check.domain.targets.models import Host
 from omega_check.infrastructure.exceptions import StorageError
+from omega_check.shared.i18n import _
 
 
 class SqliteScanRepository:
@@ -53,7 +54,7 @@ class SqliteScanRepository:
             )
             self._connection.commit()
         except sqlite3.Error as exc:
-            raise StorageError(f"echec de sauvegarde du scan {scan.id!r}") from exc
+            raise StorageError(_("échec de sauvegarde du scan {id!r}").format(id=scan.id)) from exc
 
     def get(self, scan_id: str) -> Scan | None:
         row = self._connection.execute(
@@ -135,7 +136,7 @@ class SqliteScanRepository:
 
             self._connection.commit()
         except sqlite3.Error as exc:
-            raise StorageError(f"echec de sauvegarde du host pour le scan {scan_id!r}") from exc
+            raise StorageError(_("échec de sauvegarde du host pour le scan {scan_id!r}").format(scan_id=scan_id)) from exc
 
     def _insert_port(self, cursor: sqlite3.Cursor, host_id: str, port: Port) -> None:
         port_id = new_id()

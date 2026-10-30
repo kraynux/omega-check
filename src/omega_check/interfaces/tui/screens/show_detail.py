@@ -16,6 +16,7 @@ from omega_check.domain.targets.models import Host
 from omega_check.interfaces.tui.screens._base import OmegaScreen
 from omega_check.interfaces.tui.screens.export_dialog import ExportDialogScreen
 from omega_check.interfaces.tui.widgets.services_table import ServicesTable
+from omega_check.shared.i18n import _
 
 if TYPE_CHECKING:
     from omega_check.app.dependency_container import DependencyContainer
@@ -32,18 +33,17 @@ class ShowDetailScreen(OmegaScreen):
         scan = self._scan
         yield Header()
         with Vertical(classes="omega-panel"):
-            yield Static(f"SCAN {scan.id}", classes="omega-title")
+            yield Static(_("SCAN {id}").format(id=scan.id), classes="omega-title")
             yield Static(
-                f"Cible : {scan.target} ({scan.target_ip}) — profil {scan.profile_name or '-'} — "
-                f"statut {scan.status.value}",
+                _("Cible : {target} ({target_ip}) — profil {value} — statut {value2}").format(target=scan.target, target_ip=scan.target_ip, value=scan.profile_name or '-', value2=scan.status.value),
                 classes="omega-subtitle",
             )
             yield ServicesTable(id="services-table")
             with Horizontal(classes="omega-actions"):
                 with Container(classes="omega-btn-frame"):
-                    yield Button("Exporter", id="export", variant="primary")
+                    yield Button(_("Exporter"), id="export", variant="primary")
                 with Container(classes="omega-btn-frame"):
-                    yield Button("Retour", id="back")
+                    yield Button(_("Retour"), id="back")
         yield Footer()
 
     def on_mount(self) -> None:
