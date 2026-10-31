@@ -7,8 +7,7 @@
 
 **ポート・サービス・ネットワーク上の役割のスキャナー（単一ターゲット）**
 
-> **Omega-server** のために **kraynux** が開発 
-[https://kraynux.snake-mackarel.ts.net](https://kraynux.snake-mackarel.ts.net)
+> [Omega-Server](https://kraynux.snake-mackarel.ts.net) のために [kraynux](https://github.com/kraynux) が開発   
 
 公式ページ：[OMEGA-CHECK](https://kraynux.snake-mackarel.ts.net/omega-check/) &nbsp; スクリーンショット：[Screenshots](https://kraynux.snake-mackarel.ts.net/omega-check/screenshots/)  
 

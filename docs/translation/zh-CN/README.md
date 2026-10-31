@@ -7,8 +7,7 @@
 
 **端口、服务与网络角色扫描器（单一目标）**
 
-> 由 **kraynux** 为 **Omega-server** 打造 
-[https://kraynux.snake-mackarel.ts.net](https://kraynux.snake-mackarel.ts.net)
+> 由 [kraynux](https://github.com/kraynux) 为 [Omega-Server](https://kraynux.snake-mackarel.ts.net) 打造   
 
 官方页面：[OMEGA-CHECK](https://kraynux.snake-mackarel.ts.net/omega-check/) &nbsp; 截图：[Screenshots](https://kraynux.snake-mackarel.ts.net/omega-check/screenshots/)  
 

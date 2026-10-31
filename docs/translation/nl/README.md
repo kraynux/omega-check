@@ -7,8 +7,7 @@
 
 **Scanner van poorten, diensten en netwerkrollen (één doel)**
 
-> Gemaakt door **kraynux** voor **Omega-server** 
-[https://kraynux.snake-mackarel.ts.net](https://kraynux.snake-mackarel.ts.net)
+> Gemaakt door [kraynux](https://github.com/kraynux) voor [Omega-Server](https://kraynux.snake-mackarel.ts.net)   
 
 Officiële pagina: [OMEGA-CHECK](https://kraynux.snake-mackarel.ts.net/omega-check/) &nbsp; Voorbeeld: [Screenshots](https://kraynux.snake-mackarel.ts.net/omega-check/screenshots/)  
 

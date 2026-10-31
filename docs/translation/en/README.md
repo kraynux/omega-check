@@ -7,8 +7,7 @@
 
 **Port, service and network role scanner (single target)**
 
-> Built by **kraynux** for **Omega-server** 
-[https://kraynux.snake-mackarel.ts.net](https://kraynux.snake-mackarel.ts.net)
+> Built by [kraynux](https://github.com/kraynux) for [Omega-Server](https://kraynux.snake-mackarel.ts.net)   
 
 Official page: [OMEGA-CHECK](https://kraynux.snake-mackarel.ts.net/omega-check/) &nbsp; Preview: [Screenshots](https://kraynux.snake-mackarel.ts.net/omega-check/screenshots/)  
 

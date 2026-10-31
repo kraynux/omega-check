@@ -7,8 +7,7 @@
 
 **เครื่องมือสแกนพอร์ต บริการ และบทบาทในเครือข่าย (เป้าหมายเดียว)**
 
-> พัฒนาโดย **kraynux** สำหรับ **Omega-server** 
-[https://kraynux.snake-mackarel.ts.net](https://kraynux.snake-mackarel.ts.net)
+> พัฒนาโดย [kraynux](https://github.com/kraynux) สำหรับ [Omega-Server](https://kraynux.snake-mackarel.ts.net)   
 
 หน้าทางการ: [OMEGA-CHECK](https://kraynux.snake-mackarel.ts.net/omega-check/) &nbsp; ภาพหน้าจอ: [Screenshots](https://kraynux.snake-mackarel.ts.net/omega-check/screenshots/)  
 

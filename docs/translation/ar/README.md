@@ -7,8 +7,7 @@
 
 **ماسح المنافذ والخدمات وأدوار الشبكة (هدف واحد)**
 
-> طوّره **kraynux** من أجل **Omega-server** 
-[https://kraynux.snake-mackarel.ts.net](https://kraynux.snake-mackarel.ts.net)
+> طوّره [kraynux](https://github.com/kraynux) من أجل [Omega-Server](https://kraynux.snake-mackarel.ts.net)   
 
 الصفحة الرسمية: [OMEGA-CHECK](https://kraynux.snake-mackarel.ts.net/omega-check/) &nbsp; معاينة: [Screenshots](https://kraynux.snake-mackarel.ts.net/omega-check/screenshots/)  
 

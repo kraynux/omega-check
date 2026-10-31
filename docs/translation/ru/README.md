@@ -7,8 +7,7 @@
 
 **Сканер портов, служб и сетевых ролей (одна цель)**
 
-> Создано **kraynux** для **Omega-server** 
-[https://kraynux.snake-mackarel.ts.net](https://kraynux.snake-mackarel.ts.net)
+> Создано [kraynux](https://github.com/kraynux) для [Omega-Server](https://kraynux.snake-mackarel.ts.net)   
 
 Официальная страница: [OMEGA-CHECK](https://kraynux.snake-mackarel.ts.net/omega-check/) &nbsp; Скриншоты: [Screenshots](https://kraynux.snake-mackarel.ts.net/omega-check/screenshots/)  
 

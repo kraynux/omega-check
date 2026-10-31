@@ -7,8 +7,7 @@
 
 **Scanner di porte, servizi e ruoli di rete (destinazione singola)**
 
-> Realizzato da **kraynux** per **Omega-server** 
-[https://kraynux.snake-mackarel.ts.net](https://kraynux.snake-mackarel.ts.net)
+> Realizzato da [kraynux](https://github.com/kraynux) per [Omega-Server](https://kraynux.snake-mackarel.ts.net)   
 
 Pagina ufficiale: [OMEGA-CHECK](https://kraynux.snake-mackarel.ts.net/omega-check/) &nbsp; Anteprima: [Screenshots](https://kraynux.snake-mackarel.ts.net/omega-check/screenshots/)  
 
