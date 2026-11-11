@@ -1,6 +1,6 @@
 <!-- Copyright (c) 2026 kraynux - kraynux@proton.me - MIT ライセンス（LICENSE ファイルを参照） -->
 <div align="center">
-  <img src="../../assets/omega-check.png" alt="Omega-Check" width="384">
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/assets/omega-check.png" alt="Omega-Check" width="512">
 </div>
 
 #  OMEGA-CHECK
