@@ -58,19 +58,19 @@ msgstr ""
 msgid "COMPARAISON DE SCANS"
 msgstr ""
 
-#: src/omega_check/interfaces/tui/screens/help_screen.py:29
+#: src/omega_check/interfaces/tui/screens/help_screen.py:30
 msgid "Saisir une cible (IP ou hostname) et un profil de ports, puis lancer le scan. Chaque port OPEN est ensuite identifié (protocole, logiciel, rôle) automatiquement."
 msgstr ""
 
-#: src/omega_check/interfaces/tui/screens/help_screen.py:37
+#: src/omega_check/interfaces/tui/screens/help_screen.py:38
 msgid "Liste tous les scans passés : détail complet, comparaison entre deux scans (marquer une référence puis comparer), ou rejouer un scan sur la même cible."
 msgstr ""
 
-#: src/omega_check/interfaces/tui/screens/help_screen.py:44
+#: src/omega_check/interfaces/tui/screens/help_screen.py:45
 msgid "Depuis le détail d'un scan : JSON (structure complète), texte (rapport compact) ou HTML (rapport visuel, thème d'export indépendant du thème de l'interface)."
 msgstr ""
 
-#: src/omega_check/interfaces/tui/screens/help_screen.py:51
+#: src/omega_check/interfaces/tui/screens/help_screen.py:52
 msgid "Omega-check identifie les services d'une cible unique (scan fixe, pas de dérive vers d'autres IPs) : ports TCP, protocole, logiciel, authentification, WAF, TLS, rôle inféré. Jamais de test actif ni d'authentification tentée."
 msgstr ""
 

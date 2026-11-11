@@ -7,7 +7,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Omega-Status: testing\n"
+"X-Omega-Status: validated\n"
 
 #: src/omega_check/application/commands/clear_directory.py:52
 msgid "contient l'installation de omega-check"
@@ -34,19 +34,19 @@ msgstr "🔍 OMEGA-CHECK"
 msgid "COMPARAISON DE SCANS"
 msgstr "スキャンの比較"
 
-#: src/omega_check/interfaces/tui/screens/help_screen.py:29
+#: src/omega_check/interfaces/tui/screens/help_screen.py:30
 msgid "Saisir une cible (IP ou hostname) et un profil de ports, puis lancer le scan. Chaque port OPEN est ensuite identifié (protocole, logiciel, rôle) automatiquement."
 msgstr "ターゲット（IP またはホスト名）とポートプロファイルを入力し、スキャンを開始します。その後、各 OPEN ポートは自動的に識別されます（プロトコル、ソフトウェア、役割）。"
 
-#: src/omega_check/interfaces/tui/screens/help_screen.py:37
+#: src/omega_check/interfaces/tui/screens/help_screen.py:38
 msgid "Liste tous les scans passés : détail complet, comparaison entre deux scans (marquer une référence puis comparer), ou rejouer un scan sur la même cible."
 msgstr "過去のすべてのスキャンを一覧表示：完全な詳細、2 つのスキャンの比較（基準をマークしてから比較）、または同じターゲットでの再実行。"
 
-#: src/omega_check/interfaces/tui/screens/help_screen.py:44
+#: src/omega_check/interfaces/tui/screens/help_screen.py:45
 msgid "Depuis le détail d'un scan : JSON (structure complète), texte (rapport compact) ou HTML (rapport visuel, thème d'export indépendant du thème de l'interface)."
 msgstr "スキャンの詳細から：JSON（完全な構造）、テキスト（簡潔なレポート）、HTML（視覚的なレポート、エクスポートのテーマはインターフェースのテーマとは独立）。"
 
-#: src/omega_check/interfaces/tui/screens/help_screen.py:51
+#: src/omega_check/interfaces/tui/screens/help_screen.py:52
 msgid "Omega-check identifie les services d'une cible unique (scan fixe, pas de dérive vers d'autres IPs) : ports TCP, protocole, logiciel, authentification, WAF, TLS, rôle inféré. Jamais de test actif ni d'authentification tentée."
 msgstr "Omega-check は単一ターゲットのサービスを識別します（固定スキャン、他の IP には広げません）：TCP ポート、プロトコル、ソフトウェア、認証、WAF、TLS、推定される役割。能動的なテストも認証の試行も一切行いません。"
 

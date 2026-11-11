@@ -24,6 +24,13 @@ Oficjalna strona: [OMEGA-CHECK](https://kraynux.snake-mackarel.ts.net/omega-chec
 
 **Omega-check** to narzędzie TUI + CLI, które skanuje porty pojedynczego celu sieciowego, rozpoznaje usługę działającą na każdym otwartym porcie (protokół, oprogramowanie, wersja, uwierzytelnianie, WAF, TLS) i wnioskuje jej prawdopodobną rolę, nigdy nie przeprowadzając aktywnego ataku. Narzędzie pakietu `omega-`, zbudowane zgodnie z Clean Architecture — pełne szczegóły techniczne w `docs/ARCHITECTURE.md`.
 
+<p align="center">
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/pl/omega-check/A.png" width="24%" />
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/pl/omega-check/B.png" width="24%" />
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/pl/omega-check/C.png" width="24%" />
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/pl/omega-check/D.png" width="24%" />
+</p>
+
 ## 1. Wizja i zakres
 
 Omega-check to skaner portów nastawiony na administrację systemami: szybko sprawdzić, co nasłuchuje na maszynie (własnej, w sieci LAN lub na autoryzowanym celu zewnętrznym), czym, i z jaką pewnością można uznać każdą informację za ustaloną.
@@ -113,6 +120,10 @@ Przebieg: ekran startowy (zamyka się klawiszem lub kliknięciem) → menu głó
 ### Języki interfejsu
 
 Interfejs jest dostępny w 17 językach: francuskim, angielskim, hiszpańskim, portugalskim (Brazylia), włoskim, niemieckim, niderlandzkim, polskim, rosyjskim, chińskim uproszczonym, wietnamskim, tajskim, indonezyjskim, japońskim, koreańskim, hindi i arabskim. Wyboru dokonuje się w Ustawieniach („Langue / Language”), a zmiana obowiązuje po ponownym uruchomieniu interfejsu; zmienna `OMEGA_CHECK_LANG` (na przykład `OMEGA_CHECK_LANG=pl ./omega-check.sh`) wymusza język na czas jednej sesji. Uruchomiony z omega-suite, omega-check przejmuje język pakietu. W tekstowej konsoli Linuksa (TTY) języki o piśmie innym niż łacińskie są na czas sesji wyświetlane po angielsku. Wiersz poleceń pozostaje po francusku.
+
+### Kontakt i wsparcie
+
+Pomoc (klawisz `a`) oferuje ekran **Kontakt i wsparcie**: *Postaw kawę* (strona PayPal dewelopera), *Skontaktuj się ze wsparciem* (adres e-mail i formularz kontaktowy strony, wyświetlane jawnie), *Zgłoś mnie jako użytkownika (anonimowo)* oraz *Sprawdź aktualizacje*. Zgłoszenie jest dobrowolne, domyślnie wyłączone i wysyłane tylko raz: służy wyłącznie do liczenia użytkowników oraz, jeśli tego chcesz, ich kontynentu lub kraju (zamknięte listy, nigdy dowolny tekst). Wysyła losowo wygenerowany klucz, nazwę programu (`omega-check`) i jego wersję; nigdy imienia i nazwiska, nazwy maszyny, ustawienia, celu ani wyniku. Adres IP nie jest zapisywany w zgłoszeniach, ale — jak przy każdej wizycie — przechodzi przez kontrole bezpieczeństwa i dziennik serwera odbiorczego. Wycofanie w dowolnym momencie z tego samego ekranu (*Nie zgłaszaj mnie więcej*). Sprawdzanie aktualizacji odczytuje jedynie listę wersji opublikowanych na stronie, i nigdy bez kliknięcia.
 
 ### Tryb skryptowy (CLI)
 

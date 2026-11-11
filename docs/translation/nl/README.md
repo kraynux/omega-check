@@ -24,6 +24,13 @@ Officiële pagina: [OMEGA-CHECK](https://kraynux.snake-mackarel.ts.net/omega-che
 
 **Omega-check** is een TUI- en CLI-tool die de poorten van één netwerkdoel scant, de dienst op elke open poort identificeert (protocol, software, versie, authenticatie, WAF, TLS) en de waarschijnlijke rol afleidt, zonder ooit een actieve aanval uit te voeren. Tool van de suite `omega-`, opgebouwd volgens Clean Architecture — zie `docs/ARCHITECTURE.md` voor alle technische details.
 
+<p align="center">
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/nl/omega-check/A.png" width="24%" />
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/nl/omega-check/B.png" width="24%" />
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/nl/omega-check/C.png" width="24%" />
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/nl/omega-check/D.png" width="24%" />
+</p>
+
 ## 1. Visie en reikwijdte
 
 Omega-check is een poortscanner voor systeembeheer: snel nagaan wat er op een machine luistert (de eigen machine, het LAN of een toegestaan extern doel), waarmee, en met hoeveel vertrouwen elk gegeven als vaststaand mag gelden.
@@ -113,6 +120,10 @@ Verloop: startscherm (sluit met een toets of een klik) → hoofdmenu (Scannen / 
 ### Talen van de interface
 
 De interface is beschikbaar in 17 talen: Frans, Engels, Spaans, Portugees (Brazilië), Italiaans, Duits, Nederlands, Pools, Russisch, vereenvoudigd Chinees, Vietnamees, Thai, Indonesisch, Japans, Koreaans, Hindi en Arabisch. De keuze gebeurt in de Instellingen („Langue / Language”) en geldt na een herstart van de interface; de variabele `OMEGA_CHECK_LANG` (bijvoorbeeld `OMEGA_CHECK_LANG=nl ./omega-check.sh`) legt voor één sessie een taal op. Gestart vanuit omega-suite neemt omega-check de taal van de suite over. Op een Linux-tekstconsole (TTY) worden talen met een niet-Latijns schrift voor die sessie in het Engels getoond. De opdrachtregel blijft in het Frans.
+
+### Contact en ondersteuning
+
+De hulp (toets `a`) biedt een scherm **Contact en ondersteuning**: *Trakteer op een koffie* (PayPal-pagina van de ontwikkelaar), *Contact opnemen met ondersteuning* (e-mailadres en contactformulier van de site, leesbaar weergegeven), *Mij aanmelden als gebruiker (anoniem)* en *Updates controleren*. De aanmelding is vrijwillig, standaard uitgeschakeld en wordt maar één keer verzonden: ze dient alleen om de gebruikers te tellen en, als u dat wilt, hun continent of land (gesloten lijsten, nooit vrije tekst). Ze verzendt een willekeurig gekozen sleutel, de naam van de software (`omega-check`) en de versie; nooit een naam, een machinenaam, een instelling, een doel of een resultaat. Het IP-adres wordt niet opgeslagen in de aanmeldingen, maar gaat, zoals bij elk bezoek, door de beveiligingscontroles en het logboek van de ontvangende server. Intrekken kan op elk moment vanuit hetzelfde scherm (*Mij niet meer aanmelden*). De updatecontrole leest alleen de lijst van versies die op de site gepubliceerd zijn, en nooit zonder klik.
 
 ### Scriptbare modus (CLI)
 

@@ -7,7 +7,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Omega-Status: testing\n"
+"X-Omega-Status: validated\n"
 
 #: src/omega_check/application/commands/clear_directory.py:52
 msgid "contient l'installation de omega-check"
@@ -34,19 +34,19 @@ msgstr "🔍 OMEGA-CHECK"
 msgid "COMPARAISON DE SCANS"
 msgstr "การเปรียบเทียบการสแกน"
 
-#: src/omega_check/interfaces/tui/screens/help_screen.py:29
+#: src/omega_check/interfaces/tui/screens/help_screen.py:30
 msgid "Saisir une cible (IP ou hostname) et un profil de ports, puis lancer le scan. Chaque port OPEN est ensuite identifié (protocole, logiciel, rôle) automatiquement."
 msgstr "ป้อนเป้าหมาย (IP หรือชื่อโฮสต์) และโปรไฟล์พอร์ต แล้วเริ่มสแกน จากนั้นแต่ละพอร์ต OPEN จะถูกระบุโดยอัตโนมัติ (โปรโตคอล, ซอฟต์แวร์, บทบาท)"
 
-#: src/omega_check/interfaces/tui/screens/help_screen.py:37
+#: src/omega_check/interfaces/tui/screens/help_screen.py:38
 msgid "Liste tous les scans passés : détail complet, comparaison entre deux scans (marquer une référence puis comparer), ou rejouer un scan sur la même cible."
 msgstr "แสดงการสแกนที่ผ่านมาทั้งหมด: รายละเอียดครบถ้วน เปรียบเทียบสองการสแกน (ทำเครื่องหมายข้อมูลอ้างอิงแล้วเปรียบเทียบ) หรือเรียกใช้การสแกนซ้ำบนเป้าหมายเดิม"
 
-#: src/omega_check/interfaces/tui/screens/help_screen.py:44
+#: src/omega_check/interfaces/tui/screens/help_screen.py:45
 msgid "Depuis le détail d'un scan : JSON (structure complète), texte (rapport compact) ou HTML (rapport visuel, thème d'export indépendant du thème de l'interface)."
 msgstr "จากรายละเอียดการสแกน: JSON (โครงสร้างครบถ้วน) ข้อความ (รายงานกระชับ) หรือ HTML (รายงานแบบภาพ ธีมการส่งออกแยกจากธีมของอินเทอร์เฟซ)"
 
-#: src/omega_check/interfaces/tui/screens/help_screen.py:51
+#: src/omega_check/interfaces/tui/screens/help_screen.py:52
 msgid "Omega-check identifie les services d'une cible unique (scan fixe, pas de dérive vers d'autres IPs) : ports TCP, protocole, logiciel, authentification, WAF, TLS, rôle inféré. Jamais de test actif ni d'authentification tentée."
 msgstr "Omega-check ระบุบริการของเป้าหมายเดียว (สแกนแบบคงที่ ไม่ขยายไป IP อื่น): พอร์ต TCP, โปรโตคอล, ซอฟต์แวร์, การยืนยันตัวตน, WAF, TLS, บทบาทที่อนุมาน ไม่เคยทดสอบเชิงรุกหรือพยายามยืนยันตัวตน"
 

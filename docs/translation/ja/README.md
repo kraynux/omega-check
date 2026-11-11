@@ -24,6 +24,13 @@
 
 **Omega-check** は、単一のネットワークターゲットのポートをスキャンし、開いている各ポートで動作するサービス（プロトコル、ソフトウェア、バージョン、認証、WAF、TLS）を特定して、その役割を推定する TUI + CLI ツールです。能動的な攻撃は一切行いません。`omega-` スイートのツールで、Clean Architecture で構成されています — 技術的な詳細はすべて `docs/ARCHITECTURE.md` を参照してください。
 
+<p align="center">
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/ja/omega-check/A.png" width="24%" />
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/ja/omega-check/B.png" width="24%" />
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/ja/omega-check/C.png" width="24%" />
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/ja/omega-check/D.png" width="24%" />
+</p>
+
 ## 1. ビジョンと範囲
 
 Omega-check はシステム管理向けのポートスキャナーです：あるマシン（自分のマシン、LAN、または許可された外部ターゲット）で何が待ち受けているのか、何で動いているのか、そして各情報をどこまで信頼できるのかを素早く確認します。
@@ -113,6 +120,10 @@ check
 ### インターフェースの言語
 
 インターフェースは 17 言語に対応しています：フランス語、英語、スペイン語、ポルトガル語（ブラジル）、イタリア語、ドイツ語、オランダ語、ポーランド語、ロシア語、簡体字中国語、ベトナム語、タイ語、インドネシア語、日本語、韓国語、ヒンディー語、アラビア語。設定（「Langue / Language」）で選択し、インターフェースの再起動後に反映されます。変数 `OMEGA_CHECK_LANG`（例：`OMEGA_CHECK_LANG=ja ./omega-check.sh`）で、1 セッションの間だけ言語を固定できます。omega-suite から起動した場合、omega-check はスイートの言語を使います。Linux のテキストコンソール（TTY）では、ラテン文字以外の言語はそのセッション中は英語で表示されます。コマンドラインはフランス語のままです。
+
+### お問い合わせとサポート
+
+ヘルプ（`a` キー）には **お問い合わせとサポート** 画面があります：*コーヒーをおごる*（開発者の PayPal ページ）、*サポートに連絡*（メールアドレスとサイトのお問い合わせフォームをそのまま表示）、*ユーザーとして登録（匿名）*、*更新を確認*。 登録は任意で、既定では無効、送信は一度だけです。利用者の数と、希望すればその大陸または国（選択式のリストのみ、自由入力なし）を数えるためだけに使われます。送信されるのは、ランダムに生成したキー、ソフトウェア名（`omega-check`）とそのバージョンだけで、名前、マシン名、設定、対象、結果は決して送信されません。IP アドレスは登録データには保存されませんが、通常のアクセスと同様に、受信サーバーのセキュリティチェックとログを通過します。 同じ画面からいつでも取り消せます（*登録を取り消す*）。 更新の確認は、サイトで公開されているバージョンの一覧を読むだけで、クリックしない限り行われません。
 
 ### スクリプトモード（CLI）
 

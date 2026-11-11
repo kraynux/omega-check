@@ -7,7 +7,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Omega-Status: testing\n"
+"X-Omega-Status: validated\n"
 
 #: src/omega_check/application/commands/clear_directory.py:52
 msgid "contient l'installation de omega-check"
@@ -34,19 +34,19 @@ msgstr "🔍 OMEGA-CHECK"
 msgid "COMPARAISON DE SCANS"
 msgstr "VERGELIJKING VAN SCANS"
 
-#: src/omega_check/interfaces/tui/screens/help_screen.py:29
+#: src/omega_check/interfaces/tui/screens/help_screen.py:30
 msgid "Saisir une cible (IP ou hostname) et un profil de ports, puis lancer le scan. Chaque port OPEN est ensuite identifié (protocole, logiciel, rôle) automatiquement."
 msgstr "Voer een doel (IP of hostnaam) en een poortprofiel in en start dan de scan. Elke OPEN poort wordt daarna automatisch geïdentificeerd (protocol, software, rol)."
 
-#: src/omega_check/interfaces/tui/screens/help_screen.py:37
+#: src/omega_check/interfaces/tui/screens/help_screen.py:38
 msgid "Liste tous les scans passés : détail complet, comparaison entre deux scans (marquer une référence puis comparer), ou rejouer un scan sur la même cible."
 msgstr "Toont alle eerdere scans: volledige details, vergelijking van twee scans (een referentie markeren en dan vergelijken) of herhaling van een scan op hetzelfde doel."
 
-#: src/omega_check/interfaces/tui/screens/help_screen.py:44
+#: src/omega_check/interfaces/tui/screens/help_screen.py:45
 msgid "Depuis le détail d'un scan : JSON (structure complète), texte (rapport compact) ou HTML (rapport visuel, thème d'export indépendant du thème de l'interface)."
 msgstr "Vanuit de details van een scan: JSON (volledige structuur), tekst (compact rapport) of HTML (visueel rapport, exportthema los van het thema van de interface)."
 
-#: src/omega_check/interfaces/tui/screens/help_screen.py:51
+#: src/omega_check/interfaces/tui/screens/help_screen.py:52
 msgid "Omega-check identifie les services d'une cible unique (scan fixe, pas de dérive vers d'autres IPs) : ports TCP, protocole, logiciel, authentification, WAF, TLS, rôle inféré. Jamais de test actif ni d'authentification tentée."
 msgstr "Omega-check identificeert de diensten van één doel (vaste scan, geen uitbreiding naar andere IP's): TCP-poorten, protocol, software, authenticatie, WAF, TLS, afgeleide rol. Nooit actieve tests of inlogpogingen."
 

@@ -24,6 +24,13 @@ Pagina ufficiale: [OMEGA-CHECK](https://kraynux.snake-mackarel.ts.net/omega-chec
 
 **Omega-check** è uno strumento TUI + CLI che analizza le porte di una singola destinazione di rete, identifica il servizio in esecuzione su ogni porta aperta (protocollo, software, versione, autenticazione, WAF, TLS) e ne deduce il ruolo probabile, senza mai effettuare un attacco attivo. Strumento della suite `omega-`, strutturato in Clean Architecture — vedi `docs/ARCHITECTURE.md` per tutti i dettagli tecnici.
 
+<p align="center">
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/it/omega-check/A.png" width="24%" />
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/it/omega-check/B.png" width="24%" />
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/it/omega-check/C.png" width="24%" />
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/it/omega-check/D.png" width="24%" />
+</p>
+
 ## 1. Visione e perimetro
 
 Omega-check è uno scanner di porte orientato all'amministrazione di sistema: verificare rapidamente cosa è in ascolto su una macchina (la propria, la LAN o una destinazione esterna autorizzata), con cosa, e con quanta fiducia ogni informazione può essere considerata acquisita.
@@ -113,6 +120,10 @@ Percorso: schermata iniziale (si chiude con un tasto o un clic) → menu princip
 ### Lingue dell'interfaccia
 
 L'interfaccia è disponibile in 17 lingue: francese, inglese, spagnolo, portoghese (Brasile), italiano, tedesco, olandese, polacco, russo, cinese semplificato, vietnamita, thailandese, indonesiano, giapponese, coreano, hindi e arabo. La scelta si fa nelle Impostazioni («Langue / Language») e vale dopo il riavvio dell'interfaccia; la variabile `OMEGA_CHECK_LANG` (per esempio `OMEGA_CHECK_LANG=it ./omega-check.sh`) impone una lingua per una sessione. Avviato da omega-suite, omega-check usa la lingua della suite. In una console di testo Linux (TTY), le lingue con scrittura non latina vengono mostrate in inglese per la sessione. La riga di comando resta in francese.
+
+### Contatti e supporto
+
+L'aiuto (tasto `a`) propone una schermata **Contatti e supporto**: *Offrire un caffè* (pagina PayPal dello sviluppatore), *Contattare il supporto* (indirizzo e-mail e modulo di contatto del sito, mostrati in chiaro), *Dichiararmi utente (anonimo)* e *Verifica aggiornamenti*. La dichiarazione è volontaria, disattivata per impostazione predefinita e inviata una sola volta: serve solo a contare gli utenti e, se lo si desidera, il loro continente o paese (elenchi chiusi, mai testo libero). Invia una chiave estratta a caso, il nome del software (`omega-check`) e la sua versione; mai un nome, un nome di macchina, un'impostazione, un obiettivo o un risultato. L'indirizzo IP non viene registrato nelle dichiarazioni, ma, come per ogni visita, passa per i controlli di sicurezza e il registro del server di ricezione. Ritiro in qualsiasi momento dalla stessa schermata (*Non dichiararmi più*). La verifica degli aggiornamenti legge solo l'elenco delle versioni pubblicate sul sito, e mai senza un clic.
 
 ### Modalità scriptabile (CLI)
 
